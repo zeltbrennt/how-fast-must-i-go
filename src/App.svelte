@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Input from "./Input.svelte";
-    import { hoursToString } from "./util";
+    import Input from "./lib/Input.svelte";
+    import { hoursToString } from "./lib/util";
 
     let currentDist = $state<number>(50);
     let currentAvgSpeed = $state<number>(20);
