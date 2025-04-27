@@ -48,18 +48,22 @@
                 />
                 <p class="text my-10">
                     <span class="text-3xl">
-                        {speedNeeded.toFixed(1)} km/h
+                        {speedNeeded < 0 || speedNeeded == Infinity
+                            ? "impossible"
+                            : `${speedNeeded.toFixed(1)} km/h`}
                     </span>
                 </p>
-                <div class="divider">WHY?</div>
+                <div class="divider"><i>why?</i></div>
                 <p>
                     To average {desiredAvgSpeed} km/h on a {targetDistance} km tour,
                     you need to finish the tour in {hoursToString(targetTime)}.
                     After riding on average {currentAvgSpeed}
-                    km/h for {currentDist} km means, you have been on tour for
-                    {hoursToString(currentTime)}. That leaves {hoursToString(
-                        remainingTime
-                    )} to finish the remaining {remainingDistance} km.
+                    km/h for {currentDist} km, you have been on tour for
+                    {hoursToString(currentTime)}. {remainingTime < 0
+                        ? "That is too long."
+                        : `That leaves ${hoursToString(
+                              remainingTime
+                          )} to finish the remaining ${remainingDistance} km.`}
                 </p>
             </div>
         </div>
